@@ -43,7 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
 
       if (_counter % 2 == 0) {
         listViewItem.add("Nilai Muncul " + "$_counter");
-        color
       } else {
         listViewItem.add("Nilai Muncul " + "$_counter");
         Colors.grey;
