@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 
 void main() {
   runApp(MyApp());
@@ -40,13 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter = random.nextInt(6);
       _counter++;
-
-      if (_counter % 2 == 0) {
-        listViewItem.add("Nilai Muncul " + "$_counter");
-      } else {
-        listViewItem.add("Nilai Muncul " + "$_counter");
-        Colors.grey;
-      }
+      listViewItem.add("Nilai Muncul " + "$_counter");
     });
   }
 
