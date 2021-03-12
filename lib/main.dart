@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -52,14 +54,29 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
+  List<String> listViewItem = List<String>();
+  int max = 1;
+  int min = 6;
+  int stat1 = 0, stat2 = 0, stat3 = 0, stat4 = 0, stat5 = 0, stat6 = 0;
+  Random random = new Random();
   void _incrementCounter() {
     setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
+      _counter = random.nextInt(6);
       _counter++;
+
+      listViewItem.add(_counter.toString());
+
+      if (_counter == 1)
+        stat1 += 1;
+      else if (_counter == 2)
+        stat2 += 1;
+      else if (_counter == 3)
+        stat3 += 1;
+      else if (_counter == 4)
+        stat4 += 1;
+      else if (_counter == 5)
+        stat5 += 1;
+      else if (_counter == 6) stat6++;
     });
   }
 
@@ -104,6 +121,37 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
+            SizedBox(height: 20),
+            Text("RIWAYAT"),
+            Expanded(
+              child: ListView.builder(
+                itemCount: listViewItem.length,
+                itemBuilder: (context, index) {
+                  return Container(
+                    alignment: Alignment.center,
+                    child: Text(
+                      listViewItem[index],
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  );
+                },
+              ),
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            Expanded(
+                child: Column(
+              children: [
+                Text("STATISTIK"),
+                Text("Angka 1 muncul sebanyak : " + "$stat1 kali"),
+                Text("Angka 2 muncul sebanyak : " + "$stat2 kali"),
+                Text("Angka 3 muncul sebanyak : " + "$stat3 kali"),
+                Text("Angka 4 muncul sebanyak : " + "$stat4 kali"),
+                Text("Angka 5 muncul sebanyak : " + "$stat5 kali"),
+                Text("Angka 6 muncul sebanyak : " + "$stat6 kali")
+              ],
+            ))
           ],
         ),
       ),
