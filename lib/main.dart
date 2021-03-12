@@ -53,12 +53,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
-int max = 1;
-int min = 6;
-Random rnd = new Random();
+  int max = 1;
+  int min = 6;
+  Random random = new Random();
   void _incrementCounter() {
     setState(() {
-      _counter = min + rnd.nextInt(max - min);
+      _counter = random.nextInt(6);
       _counter++;
     });
   }
